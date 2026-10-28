@@ -6,6 +6,7 @@ import global from "./shared/configuration/global.configuration";
 import database from "./shared/configuration/database.configuration";
 
 import { ApplicationModule } from './core/application/application.module';
+import { PresentationModule } from './core/presentation/presentation.module';
 import { InfrastructureModule } from './core/infrastructure/infrastructure.module';
 
 @Module({
@@ -20,7 +21,8 @@ import { InfrastructureModule } from './core/infrastructure/infrastructure.modul
         config.getOrThrow<TypeOrmModuleOptions>("DATABASE"),
     }),
     ApplicationModule,
-    InfrastructureModule
+    InfrastructureModule,
+    PresentationModule
   ],
   controllers: [],
   providers: [],
