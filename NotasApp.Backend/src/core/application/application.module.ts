@@ -1,8 +1,10 @@
 import { Module } from "@nestjs/common";
 import { StoreUserUseCase, AuthenticateUserUseCase } from "./use-cases";
+import { InfrastructureModule } from "../infrastructure/infrastructure.module";
 
 @Module({
-    providers: [AuthenticateUserUseCase, StoreUserUseCase],
+    imports: [InfrastructureModule],
     exports: [AuthenticateUserUseCase, StoreUserUseCase],
+    providers: [AuthenticateUserUseCase, StoreUserUseCase],
 })
 export class ApplicationModule { }

@@ -6,6 +6,7 @@ import global from "./shared/configuration/global.configuration";
 import database from "./shared/configuration/database.configuration";
 
 import { ApplicationModule } from './core/application/application.module';
+import { InfrastructureModule } from './core/infrastructure/infrastructure.module';
 
 @Module({
   imports: [
@@ -18,7 +19,8 @@ import { ApplicationModule } from './core/application/application.module';
       useFactory: (config: ConfigService): TypeOrmModuleOptions =>
         config.getOrThrow<TypeOrmModuleOptions>("DATABASE"),
     }),
-    ApplicationModule
+    ApplicationModule,
+    InfrastructureModule
   ],
   controllers: [],
   providers: [],

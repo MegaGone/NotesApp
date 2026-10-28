@@ -1,11 +1,14 @@
 import { registerAs } from "@nestjs/config";
 import { TypeOrmModuleOptions } from "@nestjs/typeorm";
 
+import { UserSchema } from "../../core/infrastructure/schemas/user.schema";
+import { NoteSchema } from "../../core/infrastructure/schemas/note.schema";
+
 export default registerAs("DATABASE", (): TypeOrmModuleOptions => ({
-    entities: [],
     dropSchema: false,
     type: "better-sqlite3",
     autoLoadEntities: false,
+    entities: [UserSchema, NoteSchema],
     logging: process.env.SQL_LOGGING === "1",
     synchronize: process.env.SQL_SYNCHRONIZE === "1",
     database: process.env.SQL_DATABASE || "notas.sqlite",
