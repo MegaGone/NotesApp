@@ -5,10 +5,10 @@ export const NoteSchema = new EntitySchema<NoteModel>({
     name: "Note",
     tableName: "notes",
     columns: {
+        id: { type: String, primary: true, generated: "uuid" },
         title: { type: String },
         content: { type: String },
         createdAt: { type: Date, createDate: true },
-        id: { type: String, primary: true, generated: "uuid" },
         deletedAt: { type: Date, deleteDate: true, nullable: true },
     },
     relations: {

@@ -7,7 +7,9 @@ export interface IGlobalConfiguration {
     JWT_SECRET: string;
     API_VERSION: string;
     DEBUG_MODE: boolean;
+    SEED_PASSWORD: string;
     SCALAR_THEME: ScalarTheme;
+    RESET_ALL_ON_STARTUP: boolean;
     JWT_ACCESS_EXPIRATION: string;
     JWT_REFRESH_EXPIRATION: string;
 }
@@ -17,6 +19,8 @@ export default registerAs<IGlobalConfiguration>("GLOBAL", () => ({
     PORT: +process.env.PORT || 3000,
     DEBUG_MODE: process.env.DEBUG_MODE === "1",
     API_VERSION: process.env.API_VERSION || "v1",
+    SEED_PASSWORD: process.env.SEED_PASSWORD || "Seed.Udv2026",
+    RESET_ALL_ON_STARTUP: process.env.RESET_ALL_ON_STARTUP === "1",
     JWT_ACCESS_EXPIRATION: process.env.JWT_ACCESS_EXPIRATION || "15m",
     JWT_REFRESH_EXPIRATION: process.env.JWT_REFRESH_EXPIRATION || "7d",
     SCALAR_THEME: (process.env.SCALAR_THEME as ScalarTheme) || "deepSpace",

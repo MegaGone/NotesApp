@@ -30,7 +30,7 @@ async function bootstrap() {
   await app.listen(PORT);
 
   console.log(`🚀 Running on: ${await app.getUrl()}/api/${API_VERSION}`);
-  if (DEBUG_MODE) console.log(`📖 Documentation: http://localhost:${PORT}/api/docs`);
+  if (DEBUG_MODE) console.log(`📖 Documentation: ${await app.getUrl()}/api/docs`);
 }
 
 bootstrap();

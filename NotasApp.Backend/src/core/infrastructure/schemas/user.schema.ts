@@ -5,11 +5,11 @@ export const UserSchema = new EntitySchema<UserModel>({
     name: "User",
     tableName: "users",
     columns: {
-        passwordHash: { type: String },
+        id: { type: String, primary: true, generated: "uuid" },
         email: { type: String, unique: true },
         username: { type: String, unique: true },
+        passwordHash: { type: String },
         isActive: { type: Boolean, default: true },
-        id: { type: String, primary: true, generated: "uuid" },
     },
     relations: {
         notes: {
