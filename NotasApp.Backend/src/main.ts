@@ -3,6 +3,7 @@ import { NestFactory } from '@nestjs/core';
 import { ConfigService } from '@nestjs/config';
 import { HttpStatus, ValidationPipe } from '@nestjs/common';
 import { IGlobalConfiguration } from './shared/configuration/global.configuration';
+import { HttpExceptionFilter } from './core/presentation/filters/http-exception.filter';
 import { APIContractConfiguration } from './shared/documentation/scalar.configuration';
 
 async function bootstrap() {
@@ -23,6 +24,8 @@ async function bootstrap() {
       errorHttpStatusCode: HttpStatus.BAD_REQUEST,
     }),
   );
+
+  app.useGlobalFilters(new HttpExceptionFilter());
 
   if (DEBUG_MODE)
     APIContractConfiguration.setup(app, { version: API_VERSION, theme: SCALAR_THEME });
