@@ -2,9 +2,11 @@ import { INestApplication } from "@nestjs/common";
 import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
 import { apiReference, NestJSReferenceConfiguration } from "@scalar/nestjs-api-reference";
 
+export type ScalarTheme = NestJSReferenceConfiguration["theme"];
+
 export interface IScalarOptions {
     version: string;
-    theme: NestJSReferenceConfiguration["theme"];
+    theme: ScalarTheme;
 }
 
 export class APIContractConfiguration {
