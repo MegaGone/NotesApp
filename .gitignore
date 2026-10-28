@@ -5,6 +5,10 @@ NotasApp.Backend/.env
 NotasApp.Backend/*.sqlite
 NotasApp.Backend/*.sqlite3
 NotasApp.Backend/coverage/
+NotasApp.Backend/*.tsbuildinfo
+# Using npm — reject pnpm lockfiles
+NotasApp.Backend/pnpm-lock.yaml
+NotasApp.Backend/pnpm-workspace.yaml
 
 # ─── Mobile (Android / Gradle) ───
 mobile/**/.gradle/
