@@ -5,6 +5,8 @@ import { TypeOrmModule, TypeOrmModuleOptions } from '@nestjs/typeorm';
 import global from "./shared/configuration/global.configuration";
 import database from "./shared/configuration/database.configuration";
 
+import { ApplicationModule } from './core/application/application.module';
+
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -16,6 +18,7 @@ import database from "./shared/configuration/database.configuration";
       useFactory: (config: ConfigService): TypeOrmModuleOptions =>
         config.getOrThrow<TypeOrmModuleOptions>("DATABASE"),
     }),
+    ApplicationModule
   ],
   controllers: [],
   providers: [],
