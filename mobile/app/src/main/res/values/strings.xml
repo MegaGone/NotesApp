@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">NotasApp</string>
+
+    <!-- Login -->
+    <string name="login_email_hint">Email</string>
+    <string name="login_password_hint">Contraseña</string>
+    <string name="login_button">Iniciar sesión</string>
+
+    <!-- Dashboard -->
+    <string name="dashboard_welcome">Bienvenido/a, %1$s</string>
+    <string name="dashboard_create_note">Crear nota</string>
+    <string name="dashboard_list_notes">Ver mis notas</string>
+    <string name="dashboard_logout">Cerrar sesión</string>
+
+    <!-- Create note -->
+    <string name="create_title_hint">Título</string>
+    <string name="create_content_hint">Contenido</string>
+    <string name="create_save_button">Guardar</string>
+    <string name="create_success">Nota creada</string>
+
+    <!-- Notes list -->
+    <string name="notes_empty">Todavía no tenés notas. ¡Creá la primera!</string>
+</resources>
