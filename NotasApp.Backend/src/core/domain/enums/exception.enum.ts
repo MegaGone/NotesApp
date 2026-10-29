@@ -6,3 +6,7 @@ export enum UserExceptionCode {
     INVALID_CREDENTIALS = "INVALID_CREDENTIALS",
     USER_ALREADY_EXISTS = "USER_ALREADY_EXISTS",
 }
+
+export enum NoteExceptionCode {
+    NOTE_NOT_FOUND = "NOTE_NOT_FOUND",
+}
