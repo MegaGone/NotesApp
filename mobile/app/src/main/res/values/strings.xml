@@ -2,6 +2,7 @@
     <string name="app_name">NotasApp</string>
 
     <!-- Login -->
+    <string name="login_subtitle">Tus notas, siempre a mano</string>
     <string name="login_email_hint">Email</string>
     <string name="login_password_hint">Contraseña</string>
     <string name="login_button">Iniciar sesión</string>
@@ -13,6 +14,7 @@
     <string name="dashboard_logout">Cerrar sesión</string>
 
     <!-- Create note -->
+    <string name="create_header">Nueva nota</string>
     <string name="create_title_hint">Título</string>
     <string name="create_content_hint">Contenido</string>
     <string name="create_save_button">Guardar</string>

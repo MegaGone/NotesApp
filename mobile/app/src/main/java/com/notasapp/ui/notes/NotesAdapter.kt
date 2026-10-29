@@ -35,6 +35,8 @@ class NotesAdapter : RecyclerView.Adapter<NotesAdapter.NoteViewHolder>() {
         fun bind(note: NoteResponse) {
             binding.titleTextView.text = note.title
             binding.contentTextView.text = note.content
+            // createdAt comes as ISO (2026-10-29T...); show just the date part.
+            binding.dateTextView.text = note.createdAt.take(10)
         }
     }
 }
