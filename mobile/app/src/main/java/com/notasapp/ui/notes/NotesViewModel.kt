@@ -45,4 +45,18 @@ class NotesViewModel(application: Application) : AndroidViewModel(application) {
             }
         }
     }
+
+    fun deleteNote(id: String) {
+        viewModelScope.launch {
+            try {
+                repository.deleteNote(id)
+            } catch (e: Exception) {
+                _state.value = NotesUiState.Error("No se pudo eliminar la nota.")
+            } finally {
+                // Reload either way: refreshes the list on success, restores the
+                // swiped item on failure.
+                loadNotes()
+            }
+        }
+    }
 }

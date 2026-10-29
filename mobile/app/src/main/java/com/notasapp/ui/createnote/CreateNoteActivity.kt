@@ -25,6 +25,8 @@ class CreateNoteActivity : AppCompatActivity() {
             )
         }
 
+        binding.backButton.setOnClickListener { finish() }
+
         observeState()
     }
 

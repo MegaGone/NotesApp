@@ -12,4 +12,6 @@ class NotesRepository(private val api: ApiService) {
 
     suspend fun getNotes(page: Int = 1, pageSize: Int = 20): PaginatedNotesResponse =
         api.getNotes(page, pageSize)
+
+    suspend fun deleteNote(id: String) = api.deleteNote(id)
 }
