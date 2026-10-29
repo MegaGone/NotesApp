@@ -13,5 +13,41 @@ services:
       timeout: 3s
       retries: 5
 
+  backend:
+    build:
+      context: .
+      target: development
+    container_name: notas-backend
+    restart: unless-stopped
+    command: npm run start:dev
+    ports:
+      - "3000:3000"
+    environment:
+      PORT: 3000
+      API_VERSION: v1
+      DEBUG_MODE: "1"
+      SALT: "10"
+      JWT_SECRET: change-me-in-prod
+      JWT_ACCESS_EXPIRATION: 15m
+      JWT_REFRESH_EXPIRATION: 7d
+      REDIS_HOST: redis
+      REDIS_PORT: "6379"
+      REDIS_PASSWORD: ""
+      SQL_DATABASE: notas.sqlite
+      SQL_SYNCHRONIZE: "1"
+      SQL_LOGGING: "0"
+      SEED_PASSWORD: Seed.Udv2026
+      RESET_ALL_ON_STARTUP: "0"
+      # Reliable file watching for hot reload on Docker Desktop / WSL2.
+      CHOKIDAR_USEPOLLING: "true"
+    volumes:
+      # Bind the source for hot reload; keep the container's own node_modules
+      # (native modules compiled for Linux) via the anonymous volume.
+      - ./:/app
+      - /app/node_modules
+    depends_on:
+      redis:
+        condition: service_healthy
+
 volumes:
   redis-data:
