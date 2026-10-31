@@ -8,9 +8,9 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitClient {
 
-    // 10.0.2.2 = host machine from the Android emulator.
-    // For a physical device, replace with your PC's LAN IP (e.g. http://192.168.1.50:3000/api/v1/).
-    private const val BASE_URL = "http://10.0.2.2:3000/api/v1/"
+    // Physical device: your PC's LAN IP (phone + PC on the same WiFi).
+    // Emulator: use "http://10.0.2.2:3000/api/v1/" instead.
+    private const val BASE_URL = "http://192.168.1.6:3000/api/v1/"
 
     fun create(tokenStore: TokenStore): ApiService {
         val logging = HttpLoggingInterceptor().apply {
